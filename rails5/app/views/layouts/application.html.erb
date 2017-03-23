@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="header">
+      <nav class="navbar navbar-inverse navbar-static-top navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="#" class="navbar-brand"><b>Rails</b> 5</a>
+          </div>
+
+          <span id="main-nav-menu" data-turbolinks-temporary>
+            <ul class="nav navbar-nav">
+               <li> <%= link_to(t("common.topic_list"), topics_path) %> </li>
+            </ul>
+          </span>
+
+          <%= render "common/user_nav" %>
+        </div>
+      </nav>
+    </div>
+
+    <div id="main" class="main-container container">
+      <%= notice_message %>
+      <%= yield %>
+    </div>
+  </body>
+</html>
+
+<script type="text/javascript">
+  App.locale = "<%= I18n.locale %>";
+</script>

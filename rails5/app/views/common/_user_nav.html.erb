@@ -1,0 +1,18 @@
+<ul class="nav user-bar navbar-nav navbar-right">
+  <% if current_user %>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.login %> <span class="caret"></span></a>
+    <button class="navbar-toggle" type="button" data-toggle="dropdown" role="button" aria-expanded="false">
+      <span class="sr-only">Toggle</span>
+      <i class="fa fa-reorder"></i>
+    </button>
+    <%= render_list class: "dropdown-menu", role: "menu" do |li|
+      li << link_to( I18n.t("common.create_topic"), new_topic_path )
+    end %>
+    <li> <%= link_to(I18n.t("common.logout"), destroy_user_session_path, method: "delete" ) %></li>
+  </li>
+  <% else %>
+  <li><%= link_to( I18n.t("common.register"), new_user_registration_path) %></li>
+  <li><%= link_to( I18n.t("common.login"), new_user_session_path ) %></li>
+  <% end %>
+</ul>

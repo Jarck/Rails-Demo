@@ -1,0 +1,11 @@
+body {
+  background: #E7EAEC;
+  color: $black;
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.pagination {
+  margin: 0;
+}
+
+abbr[title] { border-bottom: 0px; cursor: text; }
