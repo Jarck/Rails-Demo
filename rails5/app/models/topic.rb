@@ -1,12 +1,3 @@
-require 'auto-space'
-
-CORRECT_CHARS = [
-  ['【', '['],
-  ['】', ']'],
-  ['（', '('],
-  ['）', ')']
-]
-
 class Topic < ApplicationRecord
   include MarkdownBody
   include SoftDelete

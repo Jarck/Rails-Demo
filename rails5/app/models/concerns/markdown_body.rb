@@ -10,11 +10,10 @@ module MarkdownBody
 
   private
 
-  # TODO
+  # 将Markdown内容转换成HTML
   def markdown_body
     if self.body_changed?
-      markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
-      self.body_html = sanitize_markdown(markdown.render(body))
+      self.body_html = markdown(body)
     end
   end
 end

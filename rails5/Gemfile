@@ -44,10 +44,8 @@ gem 'simple_form'
 gem 'http_accept_language'
 
 # Markdown格式文本处理
-gem 'redcarpet', '~> 3.3.4'
-gem 'rouge', '~> 1.8.0'
-gem 'auto-space'
-gem 'nokogiri'
+gem 'redcarpet'
+gem 'coderay'
 
 # 分页
 gem 'will_paginate'

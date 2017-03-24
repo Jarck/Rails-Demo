@@ -21,8 +21,8 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     @topic.user_id = current_user.id
-    @topic.node_id = params[:node] || topic_params[:node_id]
-    @topic.node_id = 1
+    # @topic.node_id = params[:node] || topic_params[:node_id]
+    # @topic.node_id = 1
 
     if @topic.save
       redirect_to(topic_path(@topic), notice: I18n.t('common.create_success'))

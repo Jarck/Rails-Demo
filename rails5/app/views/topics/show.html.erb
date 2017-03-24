@@ -4,13 +4,10 @@
       <div class="panel-heading">
         <%= render partial: "topics/topic_info", locals: { topic: @topic } %>
       </div>
-
       <div class="panel-body markdown">
-
         <article>
           <%= raw @topic.body_html %>
         </article>
-
       </div>
     </div>
   </div>
