@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  load_and_authorize_resource only: [:new, :edit, :create, :update, :destroy]
 
   def index
     @topics = Topic.paginate(page: params[:page], :per_page => 2).order('created_at DESC')
@@ -21,8 +22,6 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     @topic.user_id = current_user.id
-    # @topic.node_id = params[:node] || topic_params[:node_id]
-    # @topic.node_id = 1
 
     if @topic.save
       redirect_to(topic_path(@topic), notice: I18n.t('common.create_success'))

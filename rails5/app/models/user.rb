@@ -6,13 +6,20 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable#,
          # :encryptable
 
+  has_many :roles, :through => :users_roles
   has_many :topics
 
-  # # 注册邮件提醒
+  # 注册邮件提醒
   # after_create :send_welcome_mail
   # def send_welcome_mail
   #   UserMailer.welcome(id).deliver_later
   # end
+
+  # 分配默认角色
+  after_create :assign_default_role
+  def assign_default_role
+    self.add_role(:member) if self.roles.blank?
+  end
 
   # 登录时可使用 用户名和邮箱
   def login=(login)

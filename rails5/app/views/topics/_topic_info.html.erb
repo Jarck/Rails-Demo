@@ -4,7 +4,10 @@
     <div class="info">
       <%= topic.user.name %>
       <%= raw I18n.t("common.created_at", time: timeago(topic.created_at) )%>
-      <%= link_to(I18n.t("common.editor_toolbar_edit"), edit_topic_path(@topic)) %>
+
+      <% if can? :create, Topic %>
+        <%= link_to(I18n.t("common.editor_toolbar_edit"), edit_topic_path(@topic)) %>
+      <% end %>
      </div>
   </div>
 </div>

@@ -2,14 +2,16 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new
     if user.blank?
-      # not logged in
-      cannot :manage, :all
-
+      cannot :mangae, :all
       basic_read_only
-    elsif user.has_role?(admin)
-      # admin
+    elsif user.has_role?(:admin)
       can :manage, :all
+    elsif user.has_role?(:member)
+      can :manage, :Topic do |topic|
+        (topic.user_id == user.id)
+      end
     end
     # Define abilities for the passed in user here. For example:
     #
@@ -42,7 +44,7 @@ class Ability
   protected
 
   def basic_read_only
-    #
+    can :read, Topic
   end
 
 end
