@@ -18,4 +18,7 @@
 //= require bootstrap-select.min
 //= require jquery.timeago
 //= require jquery.timeago.settings
-//= require common
+
+jQuery(document).ready(function() {
+  jQuery("abbr.timeago").timeago();
+});

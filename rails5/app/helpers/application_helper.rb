@@ -1,5 +1,7 @@
 module ApplicationHelper
 
+  EMPTY_STRING = ''.freeze
+
   # Override cache helper for support multiple I18n locale
   def cache(name = {}, options = {}, &block)
     options ||= {}

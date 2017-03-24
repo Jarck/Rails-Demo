@@ -1,5 +1,5 @@
 <%= simple_form_for @topic, html: { class: "form" } do |f| %>
-  <%#= render "shared/error_messages", target: @topic %>
+  <%= render "common/error_messages", target: @topic %>
   <div class="form-group">
       <%= f.text_field :title, class: "form-control", placeholder: "在这里填写标题" %>
   </div>
