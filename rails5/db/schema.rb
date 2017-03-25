@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325011151) do
+ActiveRecord::Schema.define(version: 20170325075536) do
+
+  create_table "nodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "title"
+    t.boolean  "publish",    default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",    null: false
@@ -32,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170325011151) do
 
   create_table "topics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",                        null: false
+    t.integer  "node_id",                        null: false
     t.string   "title",                          null: false
     t.text     "body",             limit: 65535, null: false
     t.text     "body_html",        limit: 65535
@@ -41,6 +50,7 @@ ActiveRecord::Schema.define(version: 20170325011151) do
     t.datetime "updated_at",                     null: false
     t.index ["deleted_at"], name: "index_topics_on_deleted_at", using: :btree
     t.index ["last_active_mark"], name: "index_topics_on_last_active_mark", using: :btree
+    t.index ["node_id"], name: "index_topics_on_node_id", using: :btree
     t.index ["user_id"], name: "index_topics_on_user_id", using: :btree
   end
 

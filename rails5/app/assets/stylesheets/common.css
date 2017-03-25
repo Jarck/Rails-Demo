@@ -9,3 +9,17 @@ body {
 }
 
 abbr[title] { border-bottom: 0px; cursor: text; }
+
+.topics .topic {
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.select_node {
+    float: left;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.topic_title {
+    width: 880px;
+}

@@ -19,11 +19,19 @@ User.create!([
 user = User.last
 
 user.topics.create!([
-  {title: 'Test 1', body: 'test', body_html: '<p>test 1</p>'},
-  {title: 'Test 2', body: 'test', body_html: '<p>test 2</p>'},
-  {title: 'Test 3', body: 'test', body_html: '<p>test 3</p>'},
-  {title: 'Test 4', body: 'test', body_html: '<p>test 4</p>'},
-  {title: 'Test 5', body: 'test', body_html: '<p>test 5</p>'}
+  {title: 'Test 1', node_id: 1, body: 'test', body_html: '<p>test 1</p>'},
+  {title: 'Test 2', node_id: 1, body: 'test', body_html: '<p>test 2</p>'},
+  {title: 'Test 3', node_id: 1, body: 'test', body_html: '<p>test 3</p>'},
+  {title: 'Test 4', node_id: 1, body: 'test', body_html: '<p>test 4</p>'},
+  {title: 'Test 5', node_id: 1, body: 'test', body_html: '<p>test 5</p>'}
+])
+
+Node.create!([
+  {name: 'private', title: '私有', publish: false},
+  {name: 'ruby', title: 'Ruby', publish: true},
+  {name: 'rails', title: 'Rails', publish: true},
+  {name: 'linux', title: 'Linux', publish: true},
+  {name: 'elasticsearch', title: 'Elasticsearch', publish: true}
 ])
 
 puts "seed end"

@@ -2,7 +2,13 @@ class TopicsController < ApplicationController
   load_and_authorize_resource only: [:new, :edit, :create, :update, :destroy]
 
   def index
-    @topics = Topic.paginate(page: params[:page], :per_page => 2).order('created_at DESC')
+    if current_user.blank?
+      # 只获取所有可见的文章信息
+      node_ids = Node.where(publish: true).pluck(:id)
+      @topics = Topic.where("node_id in (:node_ids)", node_ids: node_ids).paginate(page: params[:page], :per_page => 2).order('created_at DESC')
+    else
+      @topics = Topic.paginate(page: params[:page], :per_page => 2).order('created_at DESC')
+    end
   end
 
   def show
@@ -12,10 +18,12 @@ class TopicsController < ApplicationController
   end
 
   def new
+    @nodes_select = Node.all.collect { |node| [node.name, node.id] }
     @topic = Topic.new
   end
 
   def edit
+    @nodes_select = Node.all.collect { |node| [node.name, node.id] }
     @topic = Topic.find_by_id(params[:id])
   end
 
@@ -33,10 +41,7 @@ class TopicsController < ApplicationController
   def update
     @topic = Topic.find(params[:id])
 
-    @topic.title = topic_params[:title]
-    @topic.body  = topic_params[:body]
-
-    if @topic.save
+    if @topic.update_attributes(topic_params)
       redirect_to(topic_path(@topic), notice: I18n.t('common.update_success'))
     else
       render action: 'edit'

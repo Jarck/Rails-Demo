@@ -1,7 +1,8 @@
 <%= simple_form_for @topic, html: { class: "form" } do |f| %>
   <%= render "common/error_messages", target: @topic %>
   <div class="form-group">
-      <%= f.text_field :title, class: "form-control", placeholder: "在这里填写标题" %>
+    <%= f.select :node_id, options_for_select(@nodes_select, @topic.node_id), {}, {class: "form-control select_node"} %>
+    <%= f.text_field :title, class: "form-control topic_title", placeholder: "在这里填写标题" %>
   </div>
 
   <%= render "editor_toolbar" %>
