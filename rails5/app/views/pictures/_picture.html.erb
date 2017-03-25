@@ -1,0 +1,36 @@
+<div class="topic media topic-<%= picture.id %>">
+  <div class="infos media-body">
+    <div class="title media-heading">
+      <div class="row">
+        <div class="col-md-10">
+          <%= image_url_copy(picture) %>
+        </div>
+        <% if can? :manage, Picture %>
+          <div class="col-md-1">
+            <div>
+              <%= link_to(I18n.t("common.delete"), picture_path(picture), class: "btn btn-sm btn-danger",
+                       method: :delete, data: { confim: I18n.t("common.confirm")} ) %>
+            </div>
+          </div>
+        <%end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var clipboard = new Clipboard(".btn");
+
+  clipboard.on("success", function(e){
+    console.info("Action :", e.action);
+    console.info("Test :", e.text);
+    console.info("Trigger :", e.trigger);
+
+    e.clearSelection();
+  });
+
+  clipboard.on('error', function(e) {
+    console.error('Action:', e.action);
+    console.error('Trigger:', e.trigger);
+  });
+</script>

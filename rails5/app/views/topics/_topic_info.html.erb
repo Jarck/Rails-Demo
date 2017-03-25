@@ -5,7 +5,7 @@
       <%= topic.user.name %>
       <%= raw I18n.t("common.created_at", time: timeago(topic.created_at) )%>
 
-      <% if can? :create, Topic %>
+      <% if can? :edit, Topic %>
         <%= link_to(I18n.t("common.editor_toolbar_edit"), edit_topic_path(@topic)) %>
       <% end %>
      </div>

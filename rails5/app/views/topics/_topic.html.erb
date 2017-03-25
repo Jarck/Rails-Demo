@@ -1,7 +1,20 @@
 <div class="topic media topic-<%= topic.id %>">
   <div class="infos media-body">
     <div class="title media-heading">
-      <%= link_to(truncate(topic.title, length: 100), topic_path(topic), title: topic.title, :target=> "_blank") %>
+      <div class="row">
+        <div class="col-md-10">
+          <%= link_to(truncate(topic.title, length: 100), topic_path(topic), title: topic.title, :target=> "_blank") %>
+        </div>
+        <% if can? :manage, Topic %>
+          <div class="col-md-2">
+            <div>
+              <%= link_to(I18n.t("common.edit"), edit_topic_path(topic), :target=>"_blank", class: "btn btn-sm btn-default") %>
+              <%= link_to(I18n.t("common.delete"), topic_path(topic), class: "btn btn-sm btn-danger",
+                        method: :delete, data: { confim: I18n.t("common.confirm") }) %>
+            </div>
+          </div>
+        <%end %>
+      </div>
     </div>
   </div>
 </div>

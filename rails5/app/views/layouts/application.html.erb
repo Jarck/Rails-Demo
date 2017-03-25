@@ -19,6 +19,10 @@
           <span id="main-nav-menu" data-turbolinks-temporary>
             <ul class="nav navbar-nav">
                <li> <%= link_to(t("common.topic_list"), topics_path) %> </li>
+
+               <% if can? :manage, Picture %>
+               <li> <%= link_to(t("common.picture_list"), pictures_path) %> </li>
+               <% end %>
             </ul>
           </span>
 

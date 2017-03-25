@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :roles, :through => :users_roles
   has_many :topics
+  has_many :pictures
 
   # 注册邮件提醒
   # after_create :send_welcome_mail
