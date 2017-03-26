@@ -6,9 +6,9 @@
       <span class="sr-only">Toggle</span>
       <i class="fa fa-reorder"></i>
     </button>
-    <%= render_list class: "dropdown-menu", role: "menu" do |li|
-      li << link_to( I18n.t("common.create_topic"), new_topic_path )
-    end %>
+      <%= render_list class: "dropdown-menu", role: "menu" do |li|
+        li << link_to( I18n.t("common.create_topic"), new_topic_path )
+      end %>
     <li> <%= link_to(I18n.t("common.logout"), destroy_user_session_path, method: "delete" ) %></li>
   </li>
   <% else %>

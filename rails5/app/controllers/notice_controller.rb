@@ -1,6 +1,6 @@
 class NoticeController < ApplicationController
 
-  skip_before_action :authenticate_user!
+  # skip_before_action :authenticate_user!
 
   def index
     App_LOG.info("Time:#{Time.now} start #{self.class.name}.#{__method__}")

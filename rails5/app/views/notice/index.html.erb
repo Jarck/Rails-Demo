@@ -1,11 +1,5 @@
 # encoding: utf-8
 <div class="login_page notice_page">
-    <% if flash[:alert] %>
-        <div class="notice_msg flash_alert"><%= raw flash[:alert] %></div>
-    <%end%>
-    <% if flash[:notice] %>
-        <div class="notice_msg flash_notice"><%= raw flash[:notice]%></div>
-    <%end%>
     <div class="home_link">
         <%= link_to "返回首页", root_path, class:"jump_to_home" %>
     </div>
