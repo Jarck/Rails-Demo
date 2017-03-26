@@ -13,12 +13,12 @@ set -e
 # Feel free to change any of the following variables for your app:
 TIMEOUT=${TIMEOUT-60}
 
-APP_ROOT= /rails5
+APP_ROOT=APP_PATH
 PID=$APP_ROOT/tmp/unicorn.rails5.pid
 # CMD="cd $APP_ROOT; bundle exec unicorn -D -c $APP_ROOT/config/unicorn.rb -E production"
 CMD="cd $APP_ROOT; bundle exec unicorn_rails -D -c $APP_ROOT/config/unicorn.rb -E production"
 # CMD="cd $APP_ROOT; bundle exec unicorn_rails -D -c $APP_ROOT/config/unicorn.rb"
-AS_USER=loujiandong
+AS_USER=USER
 
 set -u
 
