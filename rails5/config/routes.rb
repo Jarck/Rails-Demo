@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   # 图片
   resources :pictures
 
+  resources :nodes, only: [:show]
+
   get 'notice' => 'notice#index'
 
   root to: "topics#index"

@@ -2,7 +2,10 @@
   <div class="infos media-body">
     <div class="title media-heading">
       <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-1">
+          <img class="upload_picture" src="<%= picture.image[0].url %>" width = "60" height = "30" alt="图片名称" align=center />
+        </div>
+        <div class="col-md-8">
           <%= image_url_copy(picture) %>
         </div>
         <% if can? :delete, picture %>
