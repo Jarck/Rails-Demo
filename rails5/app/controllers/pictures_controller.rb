@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @pictures = Picture.paginate(page: params[:page], :per_page => 2).order('created_at DESC')
+    @pictures = Picture.paginate(page: params[:page], :per_page => 10).order('created_at DESC')
   end
 
   def new
@@ -34,9 +34,9 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-    @topic = Topic.find(params[:id])
-    @topic.destroy_by(current_user)
-    redirect_to(topics_path, notice: t('common.delete_success'))
+    @picture = Picture.find(params[:id])
+    @picture.destroy
+    redirect_to(pictures_path, notice: t('common.delete_success'))
   end
 
   private

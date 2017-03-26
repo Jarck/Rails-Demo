@@ -5,7 +5,7 @@
         <div class="col-md-10">
           <%= image_url_copy(picture) %>
         </div>
-        <% if can? :manage, Picture %>
+        <% if can? :delete, picture %>
           <div class="col-md-1">
             <div>
               <%= link_to(I18n.t("common.delete"), picture_path(picture), class: "btn btn-sm btn-danger",

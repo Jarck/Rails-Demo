@@ -6,7 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <title>Pink Shark</title>
+    <title>Rails360</title>
   </head>
 
   <body>
@@ -14,15 +14,15 @@
       <nav class="navbar navbar-inverse navbar-static-top navbar-default">
         <div class="container">
           <div class="navbar-header">
-            <a href="<%= topics_path %>" class="navbar-brand"><b>Pink</b> Shark</a>
+            <a href="/" class="navbar-brand"><b>Rails</b>360</a>
           </div>
 
           <span id="main-nav-menu" data-turbolinks-temporary>
             <ul class="nav navbar-nav">
                <li> <%= link_to(t("common.topic_list"), topics_path) %> </li>
 
-               <% if can? :manage, Picture %>
-               <li> <%= link_to(t("common.picture_list"), pictures_path) %> </li>
+               <% if current_user %>
+                <li> <%= link_to(t("common.picture_list"), pictures_path) %> </li>
                <% end %>
             </ul>
           </span>
@@ -36,6 +36,8 @@
       <%= notice_message %>
       <%= yield %>
     </div>
+
+    <%#= render 'common/footer' %>
   </body>
 </html>
 

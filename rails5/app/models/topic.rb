@@ -3,6 +3,7 @@ class Topic < ApplicationRecord
   include SoftDelete
 
   belongs_to :user, inverse_of: :topics
+  belongs_to :node, inverse_of: :topics
 
   validates :user_id, :title, :body, presence: true
 

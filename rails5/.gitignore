@@ -16,6 +16,7 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+/public/assets/*
 /config/unicorn.rb
 /config/unicorn_init.sh
 /config/database.yml

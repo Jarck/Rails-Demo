@@ -1,6 +1,6 @@
 body {
   background: #E7EAEC;
-  color: $black;
+  color: #222527;
   font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -22,4 +22,13 @@ abbr[title] { border-bottom: 0px; cursor: text; }
 
 .topic_title {
     width: 880px;
+}
+
+.node {
+    color: #777;
+    margin-right: 3px;
+}
+
+.create_bar {
+  float: right;
 }

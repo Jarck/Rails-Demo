@@ -14,7 +14,7 @@
  *= require_self
  *= require bootstrap.min
  *= require bootstrap-select.min
- *= requirefont-awesome.min
+ *= require font-awesome.min
  *= require common
  */
 
