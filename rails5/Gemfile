@@ -54,6 +54,9 @@ gem 'mini_magick'
 # 分页
 gem 'will_paginate'
 
+# Redis 保存阅读量
+gem 'redis-objects'
+
 # Use Unicorn as the app server
 gem "unicorn"
 

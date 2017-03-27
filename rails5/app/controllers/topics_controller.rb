@@ -13,7 +13,16 @@ class TopicsController < ApplicationController
 
   def show
     @threads = []
+
     @topic = Topic.unscoped.includes(:user).find(params[:id])
+
+    # 阅读量自动加1
+    @threads << Thread.new do
+      @topic.hits.incr(1)
+    end
+
+    @threads.each(&:join)
+
     render_404 if @topic.deleted?
   end
 

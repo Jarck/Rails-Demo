@@ -18,5 +18,5 @@ Rails.application.routes.draw do
 
   get 'notice' => 'notice#index'
 
-  root to: "topics#index"
+  root to: "home#index"
 end

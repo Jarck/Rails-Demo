@@ -13,16 +13,16 @@
 ActiveRecord::Schema.define(version: 20170325075536) do
 
   create_table "nodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.string   "title"
-    t.boolean  "publish",    default: false
+    t.string   "name",                                    comment: "英文名"
+    t.string   "title",                                   comment: "显示名称"
+    t.boolean  "publish",    default: false,              comment: "是否公开，默认false"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
   create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",    null: false
-    t.json     "image",      null: false
+    t.integer  "user_id",    null: false, comment: "上传者id"
+    t.json     "image",      null: false, comment: "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_pictures_on_user_id", using: :btree
@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 20170325075536) do
   end
 
   create_table "topics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",                        null: false
-    t.integer  "node_id",                        null: false
-    t.string   "title",                          null: false
-    t.text     "body",             limit: 65535, null: false
-    t.text     "body_html",        limit: 65535
+    t.integer  "user_id",                        null: false, comment: "用户id"
+    t.integer  "node_id",                        null: false, comment: "文章分类"
+    t.string   "title",                          null: false, comment: "文章标题"
+    t.text     "body",             limit: 65535, null: false, comment: "原始数据"
+    t.text     "body_html",        limit: 65535,              comment: "Markdown格式数据"
     t.integer  "last_active_mark"
     t.datetime "deleted_at"
     t.datetime "created_at",                     null: false

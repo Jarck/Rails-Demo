@@ -12,6 +12,11 @@ ApplicationRecord.connection.execute("TRUNCATE users")
 ApplicationRecord.connection.execute("TRUNCATE topics")
 ApplicationRecord.connection.execute("SET FOREIGN_KEY_CHECKS=1")
 
+Role.create!([
+  {name: 'admin'},
+  {name: 'member'}
+])
+
 User.create!([
   {email: 'test@test.com', name: 'test', password: '12345678', password_confirmation: '12345678'}
 ])
@@ -19,11 +24,11 @@ User.create!([
 user = User.last
 
 user.topics.create!([
-  {title: 'Test 1', node_id: 1, body: 'test', body_html: '<p>test 1</p>'},
-  {title: 'Test 2', node_id: 1, body: 'test', body_html: '<p>test 2</p>'},
-  {title: 'Test 3', node_id: 1, body: 'test', body_html: '<p>test 3</p>'},
-  {title: 'Test 4', node_id: 1, body: 'test', body_html: '<p>test 4</p>'},
-  {title: 'Test 5', node_id: 1, body: 'test', body_html: '<p>test 5</p>'}
+  {title: 'Test 1', node_id: 2, body: 'test', body_html: '<p>test 1</p>'},
+  {title: 'Test 2', node_id: 2, body: 'test', body_html: '<p>test 2</p>'},
+  {title: 'Test 3', node_id: 2, body: 'test', body_html: '<p>test 3</p>'},
+  {title: 'Test 4', node_id: 2, body: 'test', body_html: '<p>test 4</p>'},
+  {title: 'Test 5', node_id: 2, body: 'test', body_html: '<p>test 5</p>'}
 ])
 
 Node.create!([

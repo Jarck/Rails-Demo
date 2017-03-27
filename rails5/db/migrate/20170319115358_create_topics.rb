@@ -1,11 +1,11 @@
 class CreateTopics < ActiveRecord::Migration[5.0]
   def change
     create_table :topics do |t|
-      t.integer :user_id,         null: false
-      t.integer :node_id,         null: false
-      t.string  :title,           null: false
-      t.text    :body,            null: false
-      t.text    :body_html
+      t.integer :user_id,         null: false, comment: '用户id'
+      t.integer :node_id,         null: false, comment: '文章分类'
+      t.string  :title,           null: false, comment: '文章标题'
+      t.text    :body,            null: false, comment: '原始数据'
+      t.text    :body_html,                    comment: 'Markdown格式数据'
       t.integer :last_active_mark
 
       t.datetime :deleted_at

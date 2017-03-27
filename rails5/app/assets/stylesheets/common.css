@@ -4,6 +4,14 @@ body {
   font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
 .pagination {
   margin: 0;
 }

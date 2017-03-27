@@ -1,24 +1,27 @@
-<div class="topic media topic-<%= picture.id %>">
-  <div class="infos media-body">
-    <div class="title media-heading">
-      <div class="row">
-        <div class="col-md-1">
-          <img class="upload_picture" src="<%= picture.image[0].url %>" width = "60" height = "30" alt="图片名称" align=center />
-        </div>
-        <div class="col-md-8">
-          <%= image_url_copy(picture) %>
-        </div>
-        <% if can? :delete, picture %>
-          <div class="col-md-1">
-            <div>
-              <%= link_to(I18n.t("common.delete"), picture_path(picture), class: "btn btn-sm btn-danger",
-                       method: :delete, data: { confim: I18n.t("common.confirm")} ) %>
-            </div>
-          </div>
-        <%end %>
-      </div>
-    </div>
-  </div>
+<div class="panel panel-default">
+  <div class="panel-heading">图片列表</div>
+  <table class="table">
+    <tr>
+      <th>缩略图</th>
+      <th>图片URL</th>
+      <% if can? :delete, picture %>
+      <th>操作</th>
+      <% end %>
+    </tr>
+    <tr>
+      <td>
+        <img class="upload_picture" src="<%= picture.image[0].url %>" width = "60" height = "30" alt="图片名称" align=center />
+      </td>
+      <td>
+        <%= image_url_copy(picture) %>
+      </td>
+      <% if can? :delete, picture %>
+      <td>
+        <%= link_to I18n.t("common.delete"), picture_path(picture), method: 'DELETE', data: {confirm: I18n.t("common.confirm")}, class: "btn btn-sm btn-danger" %>
+      </td>
+      <% end %>
+    </tr>
+  </table>
 </div>
 
 <script type="text/javascript">
