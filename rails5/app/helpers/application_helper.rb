@@ -62,6 +62,10 @@ module ApplicationHelper
   class HTMLwithCodeRay < Redcarpet::Render::HTML
     def block_code(code, language)
       language.downcase! if language.is_a?(String)
+
+      # 当language未指定时，设置默认的
+      language ||= :plaintext
+
       CodeRay.scan(code, language).div(:tab_width => 2)
     end
   end
