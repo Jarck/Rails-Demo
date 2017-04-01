@@ -17,10 +17,10 @@
 .byebug_history
 
 
+/config/deploy.rb
 /config/unicorn.rb
 /config/unicorn_init.sh
 /config/database.yml
-/config/redis.yml
 
 /public/uploads/*
 /public/assets/*

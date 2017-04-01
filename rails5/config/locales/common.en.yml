@@ -24,6 +24,7 @@
     topic_list: "topic list"
     node_list: "node list"
     create_topic: "create topic"
+    edit_topic: "edit topic"
     editor_toolbar_edit: "Edit"
     editor_toolbar_preview: "Preview"
     created_at: "Created at %{time}"
