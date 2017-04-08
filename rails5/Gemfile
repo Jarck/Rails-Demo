@@ -54,8 +54,17 @@ gem 'mini_magick'
 # 分页
 gem 'will_paginate'
 
+# Redis 命名空间
+gem 'redis-namespace'
+
 # Redis 保存阅读量
 gem 'redis-objects'
+
+# 队列
+gem 'mina-sidekiq', :require => false
+gem 'sidekiq'
+# Sidekiq Web
+gem 'sinatra', require: nil
 
 # Use Unicorn as the app server
 gem "mina-unicorn", :require => false
