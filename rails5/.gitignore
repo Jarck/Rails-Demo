@@ -20,6 +20,7 @@
 /config/deploy.rb
 /config/unicorn.rb
 /config/unicorn_init.sh
+/config/config.yml
 /config/database.yml
 
 /public/uploads/*

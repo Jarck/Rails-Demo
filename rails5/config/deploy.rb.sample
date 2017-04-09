@@ -3,6 +3,7 @@ require 'mina/git'
 # require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 require 'mina/rvm'    # for rvm support. (https://rvm.io)
 require 'mina/unicorn'
+require 'mina_sidekiq/tasks'
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -42,10 +43,10 @@ set :shared_files, fetch(:shared_files, []).push('config/config.yml', 'config/da
 set :shared_paths, ['tmp/sockets', 'tmp/pids', 'log', 'public/uploads/']
 
 # 设置sidekiq的进程
-set :sidekiq_pid, "#{fetch(:deploy_to)}/tmp/pid/sidekiq.pid"
+set :sidekiq_pid, "#{fetch(:deploy_to)}/tmp/pids/sidekiq.pid"
 
 # 设置unicorn pid及进程启动环境
-set :unicorn_pid, "#{fetch(:deploy_to)}/tmp/pid/unicorn.pid"
+set :unicorn_pid, "#{fetch(:deploy_to)}/tmp/pids/unicorn.pid"
 set :unicorn_env, "production"
 
 # This task is the environment that is loaded for all remote run commands, such as
@@ -116,8 +117,8 @@ end
 #  - https://github.com/mina-deploy/mina/tree/master/docs
 
 namespace :logs do
-  desc "Shows rails logs"
-  task :logs do
+  desc "Shows rails production logs"
+  task :production do
     command %[cd #{fetch(:deploy_to)}/current && tail -f log/production.log]
   end
 end
