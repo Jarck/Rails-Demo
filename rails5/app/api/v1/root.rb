@@ -1,3 +1,4 @@
+require 'grape-swagger'
 require 'doorkeeper/grape/helpers'
 
 module API
@@ -43,11 +44,15 @@ module API
       require 'v1/pictures'
       mount API::V1::Pictures
 
-      desc '简单的API测试接口，需要验证，便于快速测试OAuth 2.0'
+      desc '简单的API测试接口，需要access_token验证，便于快速测试OAuth 2.0'
       get 'hello' do
         doorkeeper_authorize!
         render result: true, user: current_user, meta: { time: Time.now }
       end
+
+      # API文档
+      add_swagger_documentation \
+        doc_version: 'v1'
 
     end    # class end
 

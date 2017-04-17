@@ -122,3 +122,6 @@ Doorkeeper.configure do
   # realm "Doorkeeper"
   realm "Rails 360"
 end
+
+Doorkeeper.configuration.token_grant_types << 'password'
+

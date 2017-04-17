@@ -73,7 +73,7 @@ gem 'sinatra', require: nil
 gem 'mina-unicorn', :require => false
 gem 'unicorn'
 
-# OAuth 2
+# OAuth 2.0
 gem 'doorkeeper', github: 'doorkeeper-gem/doorkeeper'
 gem 'doorkeeper-i18n'
 
@@ -81,7 +81,10 @@ gem 'doorkeeper-i18n'
 gem 'grape'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'grape-active_model_serializers'
-# gem 'grape-swagger'
+
+# API 文档
+gem 'grape-swagger'
+gem 'grape-swagger-rails'
 
 # for API 跨域
 gem 'rack-cors', require: 'rack/cors'

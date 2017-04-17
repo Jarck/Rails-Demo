@@ -38,4 +38,5 @@ Rails.application.routes.draw do
 
   # API
   mount ApplicationAPI => '/api'
+  mount GrapeSwaggerRails::Engine => '/docs'
 end
